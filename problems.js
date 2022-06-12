@@ -1,4 +1,4 @@
-/* 
+/*
     Original:
     Write a function `plusFive` that takes in a number as an argument and
     returns the sum of that number and 5.
@@ -11,10 +11,14 @@ function plusFive(num) {
     return num + 5;
 }
 
+function plusTen(num) {
+  return num + 10;
+}
+
 
 /*
     Original:
-    Write a function `printFives(max)` that prints out the multiples of 5 that 
+    Write a function `printFives(max)` that prints out the multiples of 5 that
     are less than max.
 
     New:
@@ -29,13 +33,23 @@ function printFives(max) {
     }
 }
 
+function returnSevens(max) {
+  let result = [];
+  for (let i = 0; i < max; i++) {
+    if (i % 7 === 0) {
+      result.push(i);
+    }
+  }
+  return result;
+}
+
 
 /*
     Original:
     Write a function named `eitherStringIncluded(sentence, word1, word2)` that
     accepts a sentence and two words as arguments. The `eitherStringIncluded`
     function should return `true` if *either* `word1` or `word2` is found in
-    the sentence, and `false` if neither is found. 
+    the sentence, and `false` if neither is found.
 
     New:
     Write a function named `bothStringsIncluded(sentence, word1, word2)` that
@@ -45,6 +59,10 @@ function printFives(max) {
 */
 function eitherStringIncluded(sentence, word1, word2) {
     return sentence.includes(word1) || sentence.includes(word2);
+}
+
+function bothStringsIncluded(sentence, word1, word2) {
+  return sentence.includes(word1) && sentence.includes(word2);
 }
 
 
@@ -66,6 +84,14 @@ function sumArray(arr) {
     return sum;
 }
 
+function productArray(arr) {
+  let product = 1;
+  for (let i = 0; i < arr.length; i++) {
+      product *= arr[i];
+  }
+  return product;
+}
+
 
 /*
     Original:
@@ -80,6 +106,9 @@ function threeOrSeven(num) {
     return num % 3 === 0 || num % 7 === 0;
 }
 
+function fiveAndEleven(num) {
+  return num % 5 === 0 && num % 11 === 0;
+}
 
 /*
     Original:
@@ -101,6 +130,17 @@ function countVowels(word) {
     return count;
 }
 
+function countConsonants(word) {
+  const consonants = 'bcdfghjklmnpqrstvwxyz';
+  let count = 0;
+  for (let i = 0; i < word.length; i++) {
+      if (consonants.includes(word[i])) {
+          count++;
+      }
+  }
+  return count;
+}
+
 
 /*
     Original:
@@ -115,13 +155,24 @@ function countVowels(word) {
     string.
 
     Strings are immutable, so here are some tools you may find useful. The
-    `.split('')` function on strings to make a copy of the string as an array. 
+    `.split('')` function on strings to make a copy of the string as an array.
     The `.join('')` function joins the elements in an array into a string.
 */
 function whisper(str) {
     return str.toLowerCase();
 }
 
+function alternatingLetters(str) {
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2 !== 0) {
+      result += str[i].toUpperCase();
+    } else {
+      result += str[i];
+    }
+  }
+  return result;
+}
 
 module.exports = {
     plusTen,
@@ -130,5 +181,5 @@ module.exports = {
     productArray,
     fiveAndEleven,
     countConsonants,
-    alternatingLetters   
+    alternatingLetters
 }
